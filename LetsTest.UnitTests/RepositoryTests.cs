@@ -1,6 +1,7 @@
 using FakeItEasy;
 using LetsTest.Data;
 using System;
+using LetsTest.Model;
 using Xunit;
 
 namespace LetsTest.UnitTests
@@ -14,9 +15,9 @@ namespace LetsTest.UnitTests
 
     }
 
-    private Repository CreateRepository()
+    private Repository<Course> CreateRepository()
     {
-      return new Repository();
+      return new Repository<Course>();
     }
 
     [Fact]
@@ -24,7 +25,7 @@ namespace LetsTest.UnitTests
     {
       // Arrange
       var unitUnderTest = CreateRepository();
-      T t = TODO;
+      Course t = TODO;
 
       // Act
       var result = unitUnderTest.Save(

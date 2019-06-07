@@ -4,7 +4,7 @@ using LetsTest.Api.Controllers;
 using LetsTest.Service;
 using Xunit;
 
-namespace LetsTest.UnitTests.Controllers
+namespace LetsTest.UnitTests
 {
   public class CoursesControllerTests
   {

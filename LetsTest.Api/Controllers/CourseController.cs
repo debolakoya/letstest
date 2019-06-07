@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using LetsTest.Api.DTOs;
+using LetsTest.Model;
 using LetsTest.Service;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using LetsTest.Api.DTOs;
-using LetsTest.Model;
-using Microsoft.AspNetCore.Http;
 
 namespace LetsTest.Api.Controllers
 {
@@ -46,25 +46,24 @@ namespace LetsTest.Api.Controllers
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(CourseDto), StatusCodes.Status201Created)]
-    public  IActionResult Post([FromBody] CourseDto course)
+    public IActionResult Post([FromBody] CourseDto course)
     {
       //Check if the course exist 
       if (!ModelState.IsValid)
-        return StatusCode(StatusCodes.Status400BadRequest, new 
-        { 
-          Message = "Course Name is required" 
+        return StatusCode(StatusCodes.Status400BadRequest, new
+        {
+          Message = "Course Name is required"
         });
       var newCourseModel = _mapper.Map<Course>(course);
-     var result =  _courseService.SaveCourse(newCourseModel);
+      var result = _courseService.SaveCourse(newCourseModel);
 
       if (result <= 0)
-        return StatusCode(StatusCodes.Status400BadRequest, new 
+        return StatusCode(StatusCodes.Status400BadRequest, new
         {
           Message = "Chapter could not be saved."
         });
 
-      return CreatedAtAction("Get", new { id = newCourseModel.Id }, _mapper.Map<CourseDto>(newCourseModel));
-
+      return CreatedAtAction("Get", new {id = newCourseModel.Id}, _mapper.Map<CourseDto>(newCourseModel));
     }
   }
 }

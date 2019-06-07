@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace LetsTest.Data
 {
-  public interface IRepository< TEntity> where TEntity : class
+  public interface IRepository<T> where T : class
   {
-    int Save (TEntity t);
-    TEntity Get (int id);
-    IEnumerable<TEntity> GetAll();
+    int Save(T t);
+    T Get(Predicate<T> id);
+    IEnumerable<T> GetAll();
   }
 }

@@ -12,15 +12,20 @@ namespace LetsTest.Data
       _store = new List<T>();
     }
 
+    public Repository(List<T> data)
+    {
+      _store = data;
+    }
+
     public virtual int Save(T t)
     {
       _store.Add(t);
-      return new Random().Next(1, 5);
+      return new Random().Next(1, 100);
     }
 
-    public T Get(int id)
+    public T Get(Predicate<T> predicate)
     {
-      throw new NotImplementedException();
+      return _store.Find(predicate);
     }
 
     public IEnumerable<T> GetAll()

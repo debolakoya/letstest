@@ -21,7 +21,7 @@ namespace LetsTest.Service
 
     public Course GetCourseById(int id)
     {
-      return _repository.Get(id);
+      return _repository.Get(x => x.Id == id);
     }
 
     public IEnumerable<Course> GetAllCourses()

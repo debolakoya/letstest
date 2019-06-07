@@ -1,17 +1,12 @@
-using FakeItEasy;
 using LetsTest.Model;
-using System;
 using Xunit;
 
 namespace LetsTest.UnitTests
 {
   public class CourseTests
   {
-
-
     public CourseTests()
     {
-
     }
 
     private Course CreateCourse()

@@ -8,7 +8,8 @@ namespace LetsTest.Model
     {
       Id = new Random().Next(1, 1000);
     }
-    public int Id { get;   }
+
+    public int Id { get; set; }
     public string Name { get; set; }
     public string SomeInternalField { get; set; }
   }

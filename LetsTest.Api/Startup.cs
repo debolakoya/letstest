@@ -21,7 +21,7 @@ namespace LetsTest.Api
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-      services.AddScoped<IRepository<Course>,Repository<Course>>();
+      services.AddScoped<IRepository<Course>, Repository<Course>>();
       services.AddScoped<ICourseService, CourseService>();
     }
 

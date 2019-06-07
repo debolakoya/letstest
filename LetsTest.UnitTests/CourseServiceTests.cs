@@ -2,7 +2,6 @@ using FakeItEasy;
 using LetsTest.Data;
 using LetsTest.Model;
 using LetsTest.Service;
-using System;
 using Xunit;
 
 namespace LetsTest.UnitTests
@@ -18,8 +17,7 @@ namespace LetsTest.UnitTests
 
     private CourseService CreateService()
     {
-      return new CourseService(
-          fakeRepository);
+      return new CourseService(fakeRepository);
     }
 
     [Fact]
@@ -27,11 +25,10 @@ namespace LetsTest.UnitTests
     {
       // Arrange
       var unitUnderTest = CreateService();
-      Course course = TODO;
+      var course = new Course ();
 
       // Act
-      var result = unitUnderTest.SaveCourseAsync(
-          course);
+      var result = unitUnderTest.SaveCourse(course);
 
       // Assert
       Assert.True(false);
@@ -42,11 +39,10 @@ namespace LetsTest.UnitTests
     {
       // Arrange
       var unitUnderTest = CreateService();
-      int id = TODO;
+      int id = 1;
 
       // Act
-      var result = unitUnderTest.GetCourseByIdAsync(
-          id);
+      var result = unitUnderTest.GetCourseById(id);
 
       // Assert
       Assert.True(false);
@@ -59,7 +55,7 @@ namespace LetsTest.UnitTests
       var unitUnderTest = CreateService();
 
       // Act
-      var result = unitUnderTest.GetAllCoursesAsync();
+      var result = unitUnderTest.GetAllCourses();
 
       // Assert
       Assert.True(false);

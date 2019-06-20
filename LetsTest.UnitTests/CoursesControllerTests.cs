@@ -8,18 +8,18 @@ namespace LetsTest.UnitTests
 {
   public class CoursesControllerTests
   {
-    private readonly ICourseService fakeCourseService;
-    private readonly IMapper fakeMapper;
+    private readonly ICourseService _fakeCourseService;
+    private readonly IMapper _fakeMapper;
 
     public CoursesControllerTests()
     {
-      fakeCourseService = A.Fake<ICourseService>();
-      fakeMapper = A.Fake<IMapper>();
+      _fakeCourseService = A.Fake<ICourseService>();
+      _fakeMapper = A.Fake<IMapper>();
     }
 
     private CoursesController CreateCoursesController()
     {
-      return new CoursesController(fakeCourseService, fakeMapper);
+      return new CoursesController(_fakeCourseService, _fakeMapper);
     }
 
     [Fact]
